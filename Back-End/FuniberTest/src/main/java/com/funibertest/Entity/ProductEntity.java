@@ -1,10 +1,10 @@
 package com.funibertest.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "product")
@@ -13,19 +13,25 @@ public class ProductEntity {
     @Id
     @Getter
     @Setter
-    Integer code;
+    private Integer code;
 
     @Getter
     @Setter
-    String name;
+    private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "category")
+    @Getter
+    @Setter
+    private CategoryEntity category;
 
     @Getter
     @Setter
-    Integer Category;
+    private Boolean stock;
 
-    @Getter
-    @Setter
-    Boolean Stock;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private Set<ProductChangeHistoryEntity> changeHistory;
+
 
 
 }
