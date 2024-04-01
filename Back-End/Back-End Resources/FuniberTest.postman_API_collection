@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "49d80bb3-20b3-4716-8259-70ab214b2603",
+		"name": "FuniberTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20788858"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Thedarik23@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"lastname\":\"Mendoza\",\r\n    \"firstname\":\"Darik\",\r\n    \"country\":\"Ecuador\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"TheCheo@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUaGVDaGVvQGdtYWlsLmNvbSIsImlhdCI6MTcxMTgxNDU5NSwiZXhwIjoxNzEzMTEwNTk1fQ.F2umQAGyRrSlaU7TelTXJADNl5MA0Rl_gkCYGRipq8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"TheCheo@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/v1/demo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"demo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUaGVDaGVvQGdtYWlsLmNvbSIsImlhdCI6MTcxMTgxNDU5NSwiZXhwIjoxNzEzMTEwNTk1fQ.F2umQAGyRrSlaU7TelTXJADNl5MA0Rl_gkCYGRipq8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"code\":111,\r\n  \"name\": \"Aceite Girasol 500ml\",\r\n  \"category\": {\r\n    \"id\": 1,\r\n    \"name\": \"Comestibles\"\r\n  },\r\n  \"stock\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by Name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUaGVDaGVvQGdtYWlsLmNvbSIsImlhdCI6MTcxMTgxNDU5NSwiZXhwIjoxNzEzMTEwNTk1fQ.F2umQAGyRrSlaU7TelTXJADNl5MA0Rl_gkCYGRipq8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"code\":111,\r\n  \"name\": \"Aceite Girasol 500ml\",\r\n  \"category\": {\r\n    \"id\": 1,\r\n    \"name\": \"Comestibles\"\r\n  },\r\n  \"stock\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/product/Aceite Girasol 2500ml",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"product",
+						"Aceite Girasol 2500ml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete by Code",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUaGVDaGVvQGdtYWlsLmNvbSIsImlhdCI6MTcxMTgxNDU5NSwiZXhwIjoxNzEzMTEwNTk1fQ.F2umQAGyRrSlaU7TelTXJADNl5MA0Rl_gkCYGRipq8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"code\":111,\r\n  \"name\": \"Aceite Girasol 500ml\",\r\n  \"category\": {\r\n    \"id\": 1,\r\n    \"name\": \"Comestibles\"\r\n  },\r\n  \"stock\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/product/113",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"product",
+						"113"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get By CategoryID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUaGVDaGVvQGdtYWlsLmNvbSIsImlhdCI6MTcxMTgxNDU5NSwiZXhwIjoxNzEzMTEwNTk1fQ.F2umQAGyRrSlaU7TelTXJADNl5MA0Rl_gkCYGRipq8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"code\":111,\r\n  \"name\": \"Aceite Girasol 500ml\",\r\n  \"category\": {\r\n    \"id\": 1,\r\n    \"name\": \"Comestibles\"\r\n  },\r\n  \"stock\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/product/category/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"product",
+						"category",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by Stock",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUaGVDaGVvQGdtYWlsLmNvbSIsImlhdCI6MTcxMTgxNDU5NSwiZXhwIjoxNzEzMTEwNTk1fQ.F2umQAGyRrSlaU7TelTXJADNl5MA0Rl_gkCYGRipq8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"code\":111,\r\n  \"name\": \"Aceite Girasol 500ml\",\r\n  \"category\": {\r\n    \"id\": 1,\r\n    \"name\": \"Comestibles\"\r\n  },\r\n  \"stock\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/product/stock/true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"product",
+						"stock",
+						"true"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUaGVDaGVvQGdtYWlsLmNvbSIsImlhdCI6MTcxMTgxNDU5NSwiZXhwIjoxNzEzMTEwNTk1fQ.F2umQAGyRrSlaU7TelTXJADNl5MA0Rl_gkCYGRipq8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"code\": 114,\r\n    \"name\": \"CocaCola\",\r\n    \"category\": {\r\n        \"id\": 1,\r\n        \"name\": \"Comestible\"\r\n    },\r\n    \"stock\": true,\r\n    \"measuring_value\": 275,\r\n    \"measuring\": {\r\n        \"id\": 4,\r\n        \"measuringname\": \"Mililitros\",\r\n        \"measuringtype\": \"ml\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUaGVDaGVvQGdtYWlsLmNvbSIsImlhdCI6MTcxMTgxNDU5NSwiZXhwIjoxNzEzMTEwNTk1fQ.F2umQAGyRrSlaU7TelTXJADNl5MA0Rl_gkCYGRipq8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"code\": 114,\r\n    \"name\": \"CocaCola\",\r\n    \"category\": {\r\n        \"id\": 1,\r\n        \"name\": \"Comestible\"\r\n    },\r\n    \"stock\": true,\r\n    \"measuring_value\": 275,\r\n    \"measuring\": {\r\n        \"id\": 4,\r\n        \"measuringname\": \"Mililitros\",\r\n        \"measuringtype\": \"ml\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/product/114",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"product",
+						"114"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
