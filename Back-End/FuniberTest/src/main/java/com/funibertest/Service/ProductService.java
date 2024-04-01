@@ -1,12 +1,14 @@
 package com.funibertest.Service;
 
 import com.funibertest.Entity.CategoryEntity;
+import com.funibertest.Entity.ProductChangeHistoryEntity;
 import com.funibertest.Entity.ProductEntity;
 import com.funibertest.Repository.ProductChangeHistoryRepository;
 import com.funibertest.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -30,7 +32,11 @@ public class ProductService {
     }
 
     public ProductEntity saveProduct(ProductEntity product) {
-        return productRepository.save(product);
+        ProductEntity savedProduct = productRepository.save(product);
+        if (savedProduct != null) {
+            saveChangeHistory(savedProduct, "CREATION", "Product created");
+        }
+        return savedProduct;
     }
 
     public List<ProductEntity> getProductsByCategory(CategoryEntity category) {
@@ -48,7 +54,12 @@ public class ProductService {
             existingProduct.setName(updatedProduct.getName());
             existingProduct.setCategory(updatedProduct.getCategory());
             existingProduct.setStock(updatedProduct.getStock());
-            return productRepository.save(existingProduct);
+            existingProduct.setMeasuring(updatedProduct.getMeasuring());
+            ProductEntity updatedProductEntity = productRepository.save(existingProduct);
+            if (updatedProductEntity != null) {
+                saveChangeHistory(updatedProductEntity, "UPDATE", "Product updated");
+            }
+            return updatedProductEntity;
         } else {
             return null;
         }
@@ -62,4 +73,13 @@ public class ProductService {
             return false;
         }
     }
+    private void saveChangeHistory(ProductEntity product, String changeType, String changeDetails) {
+        ProductChangeHistoryEntity changeHistory = new ProductChangeHistoryEntity();
+        changeHistory.setProduct(product);
+        changeHistory.setChangeDate(new Date());
+        changeHistory.setChangeType(changeType);
+        changeHistory.setChangeDetails(changeDetails);
+        productChangeHistoryRepository.save(changeHistory);
+    }
 }
+

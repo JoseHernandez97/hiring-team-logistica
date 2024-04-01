@@ -29,6 +29,16 @@ public class ProductEntity {
     @Setter
     private Boolean stock;
 
+    @Getter
+    @Setter
+    private Integer measuring_value;
+
+    @ManyToOne
+    @JoinColumn(name="measuring")
+    @Getter
+    @Setter
+    private MeasuringTypeEntity measuring;
+
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private Set<ProductChangeHistoryEntity> changeHistory;
 
