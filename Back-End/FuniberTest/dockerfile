@@ -1,0 +1,19 @@
+FROM openjdk:17
+
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+
+RUN apt-get update
+RUN apt-get install -y maven
+RUN mvn package -Dmaven.test.skip
+RUN apt-get remove -y maven
+RUN apt-get autoremove -y
+RUN rm -rf /var/lib/apt/lists/*
+RUN mv target/*.jar FuniberTest.jar
+RUN rm -rf target
+RUN chmod +x FuniberTest.jar
+
+EXPOSE 8082
+
+ENTRYPOINT ["java", "-jar", "FuniberTest.jar"]
